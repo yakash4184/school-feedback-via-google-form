@@ -1,86 +1,66 @@
 const teachers = [
   {
-    name: "YATENDRA KUMAR YADAV",
+    name: "Mr. YATENDRA KUMAR YADAV",
     photo: "../assets/teachers/YATENDRA_KUMAR_YADAV-removebg-preview.png",
   },
   {
-    name: "TARA SHANKAR YADAV",
-    photo: "../assets/teachers/TARA_SHANKAR_YADAV-removebg-preview.png",
-  },
-  {
-    name: "SUSHAMA UPADHAYAY",
+    name: "Ms. SUSHAMA UPADHAYAY",
     photo: "../assets/teachers/SUSHAMA_UPADHAYAY-removebg-preview.png",
   },
   {
-    name: "SUHANI YADAV",
+    name: "Ms. SUHANI YADAV",
     photo: "../assets/teachers/SUHANI_YADAV-removebg-preview.png",
   },
   {
-    name: "SHUSAMA SHASTRI",
+    name: "Ms. SHUSAMA SHASTRI",
     photo: "../assets/teachers/SHUSAMA_SHASTRI-removebg-preview.png",
   },
   {
-    name: "SHIWANI YADAV",
+    name: "Ms. VARTIKA YADAV",
     photo: "../assets/teachers/SHIWANI_YADAV-removebg-preview.png",
   },
   {
-    name: "SAVITA SINGH",
+    name: "Ms. SAVITA SINGH",
     photo: "../assets/teachers/SAVITA_SINGH-removebg-preview.png",
   },
   {
-    name: "RESHAMA YADAV",
+    name: "Ms. RESHAMA YADAV",
     photo: "../assets/teachers/RESHAMA_YADAV-removebg-preview.png",
   },
   {
-    name: "RAKESH KUMAR BIND",
+    name: "Mr. RAKESH KUMAR BIND",
     photo: "../assets/teachers/RAKESH_KUMAR_BIND-removebg-preview.png",
   },
   {
-    name: "RAHUL GUPTA",
+    name: "Mr. RAHUL GUPTA",
     photo: "../assets/teachers/RAHUL_GUPTA-removebg-preview.png",
   },
   {
-    name: "POOJA YADAV",
-    photo: "../assets/teachers/POOJA_YADAV-removebg-preview.png",
-  },
-  {
-    name: "POOJA YADAV PRINCIPAL",
-    photo: "../assets/teachers/POOJA_YADAV_PRINCIPAL-removebg-preview.png",
-  },
-  {
-    name: "POOJA TIWARI",
+    name: "Ms. POOJA TIWARI",
     photo: "../assets/teachers/POOJA_TIWARI-removebg-preview.png",
   },
   {
-    name: "NEELAM YADAV",
+    name: "Ms. NEELAM YADAV",
     photo: "../assets/teachers/NEELAM_YADAV-removebg-preview.png",
   },
   {
-    name: "KANCHAN YADAV",
+    name: "Ms. KANCHAN YADAV",
     photo: "../assets/teachers/KANCHAN_YADAV-removebg-preview.png",
   },
   {
-    name: "INDU YADAV",
-    photo: "../assets/teachers/INDU_YADAV-removebg-preview.png",
-  },
-  {
-    name: "HARSITA DIXIT",
+    name: "Ms. HARSITA DIXIT",
     photo: "../assets/teachers/HARSITA_DIXIT-removebg-preview.png",
   },
   {
-    name: "CAPTURE",
-    photo: "../assets/teachers/Capture-removebg-preview.png",
-  },
-  {
-    name: "BABITA YADAV",
+    name: "Ms. BABITA YADAV",
     photo: "../assets/teachers/BABITA_YADAV-removebg-preview.png",
   },
   {
-    name: "ANJUM BANO",
+    name: "Ms. ANJUM BANO",
     photo: "../assets/teachers/ANJUM_BANO-removebg-preview.png",
   },
   {
-    name: "ANAND KUMAR BIND",
+    name: "Mr. ANAND KUMAR BIND",
     photo: "../assets/teachers/ANAND_KUMAR_BIND-removebg-preview.png",
   },
 ];
