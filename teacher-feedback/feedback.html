@@ -1,120 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Teacher Feedback</title>
-  <link rel="stylesheet" href="feedback.css"/>
-</head>
-<body>
-
-<div class="container">
-
-  <div class="glass-card">
-
-    <!-- LEFT : Teacher Profile -->
-    <div class="teacher-profile">
-      <img id="teacherPhoto" src="" alt="Teacher Photo"/>
-      <h2 id="teacherName">Teacher Name</h2>
-    </div>
-
-    <!-- RIGHT : Feedback Form -->
-    <form id="feedbackForm" class="form-area">
-
-      <h2 class="form-title">Teacher Feedback Form</h2>
-
-      <!-- Student Name -->
-      <label for="studentName">Student Name</label>
-      <input 
-        type="text" 
-        id="studentName" 
-        name="studentName" 
-        placeholder="Enter student name" 
-        required 
-      />
-
-      <!-- Class & Section -->
-<label for="studentClass">Class</label>
-<input
-  type="text"
-  id="studentClass"
-  name="studentClass"
-  placeholder="Enter class (e.g. 8)"
-  required
-/>
-
-<label for="studentSection">Section</label>
-<select
-  id="studentSection"
-  name="studentSection"
-  required
->
-  <option value="">Select Section</option>
-  <option value="A">A</option>
-  <option value="B">B</option>
-  <option value="C">C</option>
-</select>
-
-
-      <!-- Teaching Quality Rating -->
-      <label>Teaching Quality (1 = Poor, 5 = Excellent)</label>
-      <div class="number-rating">
-        <label><input type="radio" name="rating" value="1" required /><span>1</span></label>
-        <label><input type="radio" name="rating" value="2" /><span>2</span></label>
-        <label><input type="radio" name="rating" value="3" /><span>3</span></label>
-        <label><input type="radio" name="rating" value="4" /><span>4</span></label>
-        <label><input type="radio" name="rating" value="5" /><span>5</span></label>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Feedback | SBIC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="feedback.css" />
+  </head>
+  <body>
+    <header class="form-header">
+      <a class="back-link" href="../index.html">← Back to Home</a>
+      <div class="brand">
+        <img src="../images/school-logo.png" alt="School logo" />
+        <div>
+          <p>SAVITRI BALIKA INTER COLLEGE</p>
+          <h1>Teacher Feedback</h1>
+          <span>Jamunahiya, Mirzapur</span>
+        </div>
       </div>
+    </header>
 
-    <label>Clarity of Explanation</label>
-<div class="number-rating">
-  <label><input type="radio" name="clarity" value="1" required /><span>1</span></label>
-  <label><input type="radio" name="clarity" value="2" /><span>2</span></label>
-  <label><input type="radio" name="clarity" value="3" /><span>3</span></label>
-  <label><input type="radio" name="clarity" value="4" /><span>4</span></label>
-  <label><input type="radio" name="clarity" value="5" /><span>5</span></label>
-</div>
+    <main class="form-shell">
+      <section class="panel intro" id="welcomePanel">
+        <div>
+          <h2>Thank you for helping us improve.</h2>
+          <p>
+            Please share your feedback for the listed teachers. Your responses
+            are anonymous and help us improve teaching and learning.
+          </p>
+          <ul>
+            <li>Rate key areas for each teacher.</li>
+            <li>Share one helpful comment.</li>
+            <li>You can skip a teacher if they did not teach you.</li>
+          </ul>
+          <button class="primary" id="startBtn">Start Feedback</button>
+        </div>
+        <div class="intro-card">
+          <img src="../images/welcome-poster.jpg" alt="School campus" />
+          <div>
+            <h3>Respectful feedback only</h3>
+            <p>
+              Keep your comments focused on classroom experience and learning
+              outcomes.
+            </p>
+          </div>
+        </div>
+      </section>
 
-<label>Support and Behaviour Towards Students</label>
-<div class="number-rating">
-  <label><input type="radio" name="behaviour" value="1" required /><span>1</span></label>
-  <label><input type="radio" name="behaviour" value="2" /><span>2</span></label>
-  <label><input type="radio" name="behaviour" value="3" /><span>3</span></label>
-  <label><input type="radio" name="behaviour" value="4" /><span>4</span></label>
-  <label><input type="radio" name="behaviour" value="5" /><span>5</span></label>
-</div>
+      <section class="panel form-area hidden" id="formPanel">
+        <div class="teacher-card">
+          <div class="progress">
+            <span id="progressText">1 / 3</span>
+            <div class="progress-bar"><span id="progressFill"></span></div>
+          </div>
+          <img id="teacherPhoto" src="" alt="Teacher" />
+          <h2 id="teacherName">Teacher Name</h2>
+          <p id="teacherMeta">Subject • Class</p>
+          <button class="ghost" id="skipTeacher">This teacher did not teach me</button>
+        </div>
 
+        <form id="feedbackForm" class="form-card">
+          <h3>Student details</h3>
+          <div class="grid">
+            <label>
+              Student name
+              <input type="text" id="studentName" required />
+            </label>
+            <label>
+              Class
+              <input type="text" id="studentClass" required />
+            </label>
+            <label>
+              Section
+              <select id="studentSection" required>
+                <option value="">Select</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+              </select>
+            </label>
+          </div>
 
-      <!-- Comments -->
-      <label for="comments">Your Feedback</label>
-      <textarea 
-        id="comments" 
-        name="comments" 
-        placeholder="Write your feedback here..."
-        rows="4">
-      </textarea>
+          <h3>Teacher ratings</h3>
+          <div class="rating-group">
+            <p>Teaching quality</p>
+            <div class="rating" data-field="rating"></div>
+          </div>
+          <div class="rating-group">
+            <p>Clarity of explanation</p>
+            <div class="rating" data-field="clarity"></div>
+          </div>
+          <div class="rating-group">
+            <p>Support and behaviour</p>
+            <div class="rating" data-field="behaviour"></div>
+          </div>
 
-      <!-- Buttons -->
-      <div class="btn-group">
-        <button type="button" class="secondary" id="skipTeacherBtn">
-  This teacher did not teach me
-</button>
+          <label class="full">
+            Your feedback
+            <textarea id="comments" rows="4" placeholder="Write a short comment"></textarea>
+          </label>
 
+          <div class="actions">
+            <button type="button" class="secondary" id="nextBtn">Next Teacher</button>
+            <button type="submit" class="primary" id="submitBtn">Submit Feedback</button>
+          </div>
+          <p class="note" id="statusNote"></p>
+        </form>
+      </section>
 
-        <button type="button" id="nextBtn">
-          Next Teacher
-        </button>
+      <section class="panel success hidden" id="successPanel">
+        <div>
+          <h2>Feedback submitted!</h2>
+          <p>Your responses have been recorded successfully.</p>
+          <div class="success-actions">
+            <button class="primary" id="restartBtn">Submit another response</button>
+            <a class="secondary" href="../index.html">Return to Home</a>
+          </div>
+        </div>
+      </section>
+    </main>
 
-        <button type="submit" id="submitBtn" style="display:none;">
-          Submit Feedback
-        </button>
-      </div>
-
-    </form>
-
-  </div>
-</div>
-
-<script src="feedback.js"></script>
-</body>
+    <script src="feedback.js"></script>
+  </body>
 </html>
