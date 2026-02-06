@@ -1,39 +1,37 @@
 describe('Feedback Form Test', () => {
   it('fills and submits the form', () => {
-    cy.visit('https://school-feedback-via-google-form.vercel.app/teacher-feedback/feedback.html'); // अपना सही URL लगाओ
-    
+    cy.visit('https://school-feedback-via-google-form.vercel.app/teacher-feedback/feedback.html');
+
     cy.get('#startBtn').click();
-    // स्टूडेंट डिटेल्स भरना
+
+    // Fill student details
     cy.get('#studentName').type('Akash Yadav');
-    cy.get('#studentClass').type('10th');
+    cy.get('#studentClass').select('Class 10');
     cy.get('#studentSection').select('A');
 
-    // रेटिंग बटन (मान लो 5 बटन हैं, 1 से 5 तक)
-    function fillFeedback() {
-    cy.get('.rating[data-field="rating"] button').eq(4).click(); // 5-star
-    cy.get('.rating[data-field="clarity"] button').eq(3).click(); // 4-star
-    cy.get('.rating[data-field="behaviour"] button').eq(4).click(); // 5-star
-    
-    // फीडबैक टेक्स्ट
-    cy.get('#comments').type('बहुत अच्छे तरीके से पढ़ाते हैं।');
-    
-  }
-  function nextOrSubmit(){
-    cy.get('body').then($body => {
-      // if($body.find('#nextBtn').length){
-      if($body.find('#nextBtn:visible').length){
-        cy.get('#nextBtn').click();
-        fillFeedback();
-        nextOrSubmit();
-      }else{
-        cy.get('#submitBtn').click();
-      }
+    const fillFeedback = () => {
+      cy.get('.rating[data-field="rating"] button').eq(4).click();    // 5-star
+      cy.get('.rating[data-field="clarity"] button').eq(3).click();   // 4-star
+      cy.get('.rating[data-field="behaviour"] button').eq(4).click(); // 5-star
+      cy.get('#comments').clear().type('Teaches very well and is supportive.');
+    };
+
+    const goNextOrSubmit = () => {
+      fillFeedback();
+
+      return cy.get('#nextBtn').then(($btn) => {
+        if ($btn.is(':visible')) {
+          cy.wrap($btn).click();
+          return goNextOrSubmit(); // important: return the recursion
+        }
+        return cy.get('#submitBtn').click();
+      });
+    };
+
+    // Start the loop and wait for it
+    return goNextOrSubmit().then(() => {
+      cy.get('#successPanel', { timeout: 20000 }).should('be.visible');
+      cy.contains('Feedback submitted!').should('be.visible');
     });
-  }
-
-  fillFeedback();
-  nextOrSubmit();
-
-  cy.contains('Feedback submitted!');
-});
+  });
 });
