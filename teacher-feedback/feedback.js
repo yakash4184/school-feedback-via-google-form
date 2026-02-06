@@ -102,6 +102,7 @@ const form = document.getElementById("feedbackForm");
 const studentName = document.getElementById("studentName");
 const studentClass = document.getElementById("studentClass");
 const studentSection = document.getElementById("studentSection");
+const studentNameError = document.getElementById("studentNameError");
 const comments = document.getElementById("comments");
 const statusNote = document.getElementById("statusNote");
 const nextBtn = document.getElementById("nextBtn");
@@ -162,6 +163,11 @@ function updateProgress() {
   progressFill.style.width = `${((currentIndex + 1) / teachers.length) * 100}%`;
 }
 
+function scrollToFormTop() {
+  formPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 function loadTeacher() {
   const teacher = teachers[currentIndex];
   teacherPhoto.src = teacher.photo;
@@ -190,6 +196,8 @@ function loadTeacher() {
     nextBtn.classList.remove("hidden");
     submitBtn.classList.add("hidden");
   }
+
+  scrollToFormTop();
 }
 
 function showPanel(panel) {
@@ -216,11 +224,30 @@ function collectResponse(skipped) {
 
 function validateBasics() {
   if (!studentName.value.trim() || !studentClass.value.trim() || !studentSection.value) {
-    statusNote.textContent = "Please fill in student details before continuing.";
+    if (studentNameError) {
+      studentNameError.textContent = "Please fill in student details before continuing.";
+    }
+    scrollToField(studentName);
     return false;
+  }
+  if (studentNameError) {
+    studentNameError.textContent = "";
   }
   return true;
 }
+
+function scrollToField(field) {
+  field.scrollIntoView({ behavior: "smooth", block: "center" });
+  field.focus({ preventScroll: true });
+}
+
+[studentName, studentClass, studentSection].forEach((field) => {
+  field.addEventListener("input", () => {
+    if (studentNameError) {
+      studentNameError.textContent = "";
+    }
+  });
+});
 
 async function submitToGoogleForm(response) {
   const data = new URLSearchParams();
@@ -260,6 +287,7 @@ startBtn.addEventListener("click", () => {
   responses.length = 0;
   setupRatings();
   loadTeacher();
+  scrollToFormTop();
 });
 
 restartBtn.addEventListener("click", () => {

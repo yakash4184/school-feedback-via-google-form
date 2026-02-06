@@ -1,0 +1,23 @@
+{
+  "name": "google_form",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yakash4184/school-feedback-via-google-form.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yakash4184/school-feedback-via-google-form/issues"
+  },
+  "homepage": "https://github.com/yakash4184/school-feedback-via-google-form#readme",
+  "dependencies": {
+    "cypress": "^15.10.0"
+  }
+}

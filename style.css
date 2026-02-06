@@ -180,6 +180,8 @@ a {
   padding: 12px 24px;
   font-weight: 600;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .primary {
@@ -191,6 +193,16 @@ a {
 .secondary {
   border: 1px solid rgba(31, 26, 21, 0.2);
   background: #fff;
+}
+
+.primary::after,
+.secondary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
+  transform: translateX(-120%);
+  animation: buttonShine 3s linear infinite;
 }
 
 .primary:hover,
@@ -242,6 +254,21 @@ a {
   font-size: 1.3rem;
   margin-bottom: 10px;
   animation: floatTitle 6s ease-in-out infinite;
+  background: linear-gradient(120deg, #1f1a15, #f0552a, #2962ff, #1f1a15);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shineText 5s linear infinite;
+}
+
+@keyframes buttonShine {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
 }
 
 .hero-card-body p {
