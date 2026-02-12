@@ -131,7 +131,8 @@ a {
 
 .primary,
 .secondary,
-.ghost {
+.ghost,
+.prev {
   border: none;
   border-radius: 999px;
   padding: 12px 24px;
@@ -160,16 +161,26 @@ a {
   color: var(--muted);
 }
 
+.prev {
+  background: linear-gradient(135deg, #2952ff, #4cc9ff);
+  color: #fff;
+  border: none;
+  box-shadow: 0 12px 26px rgba(41, 82, 255, 0.28);
+}
+
+
 .primary,
 .secondary,
-.ghost {
+.ghost,
+.prev {
   position: relative;
   overflow: hidden;
 }
 
 .primary::after,
 .secondary::after,
-.ghost::after {
+.ghost::after,
+.prev::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -203,7 +214,8 @@ a {
 
 .primary:hover,
 .secondary:hover,
-.ghost:hover {
+.ghost:hover,
+.prev:hover {
   transform: translateY(-2px);
 }
 
@@ -254,6 +266,7 @@ a {
   border: 4px solid #fff;
 }
 
+
 .teacher-card h2 {
   font-size: 1.3rem;
   margin-top: 4px;
@@ -264,25 +277,6 @@ a {
   font-size: 0.9rem;
 }
 
-.progress {
-  text-align: left;
-}
-
-.progress-bar {
-  height: 6px;
-  background: #f0e4d6;
-  border-radius: 999px;
-  overflow: hidden;
-  margin-top: 6px;
-}
-
-.progress-bar span {
-  display: block;
-  height: 100%;
-  background: var(--accent);
-  width: 0;
-  transition: width 0.3s ease;
-}
 
 .form-card {
   display: grid;

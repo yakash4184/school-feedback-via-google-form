@@ -4,9 +4,6 @@ module.exports = defineConfig({
   allowCypressEnv: false,
 
   e2e: {
-    baseUrl: "http://localhost:4173",
-    video: false,
-    screenshotOnRunFailure: true,
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },

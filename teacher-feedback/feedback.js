@@ -8,10 +8,6 @@ const teachers = [
     photo: "../assets/teachers/SUSHAMA_UPADHAYAY-removebg-preview.png",
   },
   {
-    name: "Ms. SUHANI YADAV",
-    photo: "../assets/teachers/SUHANI_YADAV-removebg-preview.png",
-  },
-  {
     name: "Ms. SHUSAMA SHASTRI",
     photo: "../assets/teachers/SHUSAMA_SHASTRI-removebg-preview.png",
   },
@@ -74,9 +70,8 @@ const restartBtn = document.getElementById("restartBtn");
 const teacherPhoto = document.getElementById("teacherPhoto");
 const teacherName = document.getElementById("teacherName");
 const teacherMeta = document.getElementById("teacherMeta");
-const progressText = document.getElementById("progressText");
-const progressFill = document.getElementById("progressFill");
 const skipTeacherBtn = document.getElementById("skipTeacher");
+const prevBtn = document.getElementById("prevBtn");
 
 const form = document.getElementById("feedbackForm");
 const studentName = document.getElementById("studentName");
@@ -87,6 +82,12 @@ const comments = document.getElementById("comments");
 const statusNote = document.getElementById("statusNote");
 const nextBtn = document.getElementById("nextBtn");
 const submitBtn = document.getElementById("submitBtn");
+
+if (teacherPhoto) {
+  teacherPhoto.loading = "lazy";
+  teacherPhoto.decoding = "async";
+}
+
 
 const GOOGLE_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSf5nwZnYLhpkd3euTwvkPRFKh144iv3m8QuScpCc00Nzh9paA/formResponse";
@@ -138,10 +139,6 @@ function updateRatingUI(field) {
   });
 }
 
-function updateProgress() {
-  progressText.textContent = `${currentIndex + 1} / ${teachers.length}`;
-  progressFill.style.width = `${((currentIndex + 1) / teachers.length) * 100}%`;
-}
 
 function scrollToFormTop() {
   formPanel.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -159,7 +156,6 @@ function loadTeacher() {
     teacherMeta.textContent = "";
     teacherMeta.style.display = "none";
   }
-  updateProgress();
 
   ratingFields.forEach((field) => {
     ratings[field] = 0;
@@ -177,6 +173,10 @@ function loadTeacher() {
     submitBtn.classList.add("hidden");
   }
 
+  if (prevBtn) {
+    prevBtn.classList.toggle("hidden", currentIndex === 0);
+  }
+
   scrollToFormTop();
 }
 
@@ -189,6 +189,7 @@ function showPanel(panel) {
 
 function collectResponse(skipped) {
   const teacher = teachers[currentIndex];
+  teacherPhoto.src = teacher.photo;
   responses.push({
     teacher: teacher.name,
     skipped,
@@ -287,6 +288,15 @@ skipTeacherBtn.addEventListener("click", () => {
     submitAll();
   }
 });
+
+if (prevBtn) {
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex === 0) return;
+    responses.pop();
+    currentIndex -= 1;
+    loadTeacher();
+  });
+}
 
 nextBtn.addEventListener("click", () => {
   if (!validateBasics()) return;

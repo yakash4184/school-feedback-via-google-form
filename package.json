@@ -4,7 +4,12 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "python3 -m http.server 4173",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -17,7 +22,10 @@
     "url": "https://github.com/yakash4184/school-feedback-via-google-form/issues"
   },
   "homepage": "https://github.com/yakash4184/school-feedback-via-google-form#readme",
-  "dependencies": {
-    "cypress": "^15.10.0"
+  "devDependencies": {
+    "cypress": "^15.10.0",
+    "eslint": "^9.22.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5"
   }
 }

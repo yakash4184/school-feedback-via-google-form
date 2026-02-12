@@ -1,6 +1,7 @@
 describe('Feedback Form Test', () => {
   it('fills and submits the form', () => {
-    cy.visit('https://school-feedback-via-google-form.vercel.app/teacher-feedback/feedback.html');
+    cy.intercept('POST', '**/forms/**', { statusCode: 200 }).as('formSubmit');
+    cy.visit('/teacher-feedback/feedback.html');
 
     cy.get('#startBtn').click();
 

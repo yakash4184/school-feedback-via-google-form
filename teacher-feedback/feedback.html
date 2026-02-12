@@ -16,7 +16,7 @@
     <header class="form-header">
       <a class="back-link" href="../index.html">← Back to Home</a>
       <div class="brand">
-        <img src="../images/school-logo.png" alt="School logo" />
+        <img src="../images/school-logo.png" alt="School logo" decoding="async" />
         <div>
           <p>SAVITRI BALIKA INTER COLLEGE</p>
           <h1>Teacher Feedback</h1>
@@ -41,7 +41,7 @@
           <button class="primary" id="startBtn">Start Feedback</button>
         </div>
         <div class="intro-card">
-          <img src="../images/welcome-poster.jpg" alt="School campus" />
+          <img src="../images/welcome-poster.jpg" alt="School campus" loading="lazy" decoding="async" />
           <div>
             <h3>Respectful feedback only</h3>
             <p>
@@ -54,10 +54,6 @@
 
       <section class="panel form-area hidden" id="formPanel">
         <div class="teacher-card">
-          <div class="progress">
-            <span id="progressText">1 / 3</span>
-            <div class="progress-bar"><span id="progressFill"></span></div>
-          </div>
           <img id="teacherPhoto" src="" alt="Teacher" />
           <h2 id="teacherName">Teacher Name</h2>
           <p id="teacherMeta">Subject • Class</p>
@@ -126,6 +122,7 @@
           </label>
 
           <div class="actions">
+            <button type="button" class="prev hidden" id="prevBtn">Previous Teacher</button>
             <button type="button" class="secondary" id="nextBtn">Next Teacher</button>
             <button type="submit" class="primary" id="submitBtn">Submit Feedback</button>
           </div>
