@@ -16,6 +16,10 @@ const teachers = [
     photo: "../assets/teachers/SHIWANI_YADAV-removebg-preview.png",
   },
   {
+    name: "Ms. Priya Shrimali",
+    photo: "../assets/teachers/Priya_Shrimali.png",
+  },
+  {
     name: "Ms. SAVITA SINGH",
     photo: "../assets/teachers/SAVITA_SINGH-removebg-preview.png",
   },
