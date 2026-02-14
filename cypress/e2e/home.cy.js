@@ -1,6 +1,6 @@
 describe('Feedback Form Test', () => {
   it('fills and submits the form', () => {
-    cy.intercept('POST', '**/forms/**', { statusCode: 200 }).as('formSubmit');
+    // cy.intercept('POST', '**/forms/**', { statusCode: 200 }).as('formSubmit');
     cy.visit('/teacher-feedback/feedback.html');
 
     cy.get('#startBtn').click();
